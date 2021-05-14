@@ -14,7 +14,7 @@ mongoose.connect('mongodb+srv://Jai-Singhal:Mongodbsinghal@02@cluster0.rwdlf.mon
  .then(()=> console.log('Connected to mongodb server...'))
  .catch(err=> console.error('Error connecting:',err.message));
 var corsOptions = {
-    origin: 'http://localhost:3000', //https://jaisinghal02.github.io
+    origin: 'https://jaisinghal02.github.io', //https://jaisinghal02.github.io
   }
   app.get('/',(req,res)=>{
       res.send("This is API for Blog")

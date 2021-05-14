@@ -128,6 +128,7 @@ router.post('/update/:id',upload.single('articleImage'),async(req,res)=>{
     })
     let imageName=article["coverImage"]
     try{
+        
         if(req.file){
             if(article["coverImage"]!==req.file.name){
                 delete_imgs.push(article["coverImage"])
@@ -144,7 +145,6 @@ router.post('/update/:id',upload.single('articleImage'),async(req,res)=>{
             },
             new: true})
         const directory = 'imagesPath';
-        var dir = './imagesPath';
         fs.rmdir(directory, { recursive: true })
         .then(() => {if (!fsd.existsSync(dir)){
             fsd.mkdirSync(dir);

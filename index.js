@@ -7,6 +7,7 @@ const article = require('./routes/article')
 const upload = require('./routes/upload')
 const authMiddleWare = require('./middleware/auth')
 const cors = require('cors')
+const fs = require("fs")
 const app = express();
 global.imageFiles=[]
 // mongoose.connect('mongodb://localhost/blog',{useNewUrlParser: true,useUnifiedTopology: true})
@@ -37,5 +38,9 @@ app.get('/admincheck',authMiddleWare,async(req,res)=>{
 
 const port = process.env.PORT || 5000
 app.listen(port,()=>{
+    var dir = './imagesPath';
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+        }
     console.log(`Server running at port ${5000}..`)
 })

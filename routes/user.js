@@ -14,7 +14,8 @@ router.post('/',async (req,res)=>{
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
-            password: hashedPassword
+            password: hashedPassword,
+            isAdmin:true
         })
         await user.save()
         const token= jwt.sign({_id: user._id},"secretJwtPrivateKey_Fatmug")
@@ -23,7 +24,7 @@ router.post('/',async (req,res)=>{
             last_name: user.last_name,
             email: user.email,
             token: token,
-            isAdmin: false
+            isAdmin: true
 
         })
     }
